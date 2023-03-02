@@ -1,0 +1,57 @@
+.frame {
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tableData {
+  width: 250px;
+  height: 30px;
+  background-color: #7ebdc2;
+  text-align: center;
+  color: #011627;
+}
+
+table td button {
+  padding: 5px 10px;
+  border-radius: 5%;
+  cursor: pointer;
+}
+
+table td button.tableDataEdit {
+  border: 1px solid green;
+  background-color: rgb(30, 176, 30);
+  color: white;
+}
+
+table td button.tableDataEdit:hover {
+  filter: brightness(85%);
+}
+
+table td button.tableDataDelete {
+  border: 1px solid red;
+  background-color: rgb(198, 54, 54);
+  color: white;
+}
+
+table td button.tableDataDelete:hover {
+  filter: brightness(85%);
+}
+
+.addToList {
+  margin-bottom: 30px;
+  & input {
+    width: 230px;
+    height: 30px;
+  }
+  button {
+    width: 140px;
+    color: white;
+    background-color: green;
+  }
+}
+
+.addToList button:hover {
+  background-color: rgb(30, 176, 30);
+}
