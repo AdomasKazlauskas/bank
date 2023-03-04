@@ -5,7 +5,7 @@
   align-items: center;
 }
 
-.tableData {
+td {
   width: 250px;
   height: 30px;
   background-color: #7ebdc2;
@@ -15,8 +15,9 @@
 
 table td button {
   padding: 5px 10px;
-  border-radius: 5%;
+  border-radius: 10px;
   cursor: pointer;
+  background-color: #7ebdc2;
 }
 
 table td button.tableDataEdit {
