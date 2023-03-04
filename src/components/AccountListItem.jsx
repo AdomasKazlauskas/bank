@@ -22,6 +22,7 @@ const AccountListItem = ({ account, setAccounts }) => {
           : account
       )
     );
+    setAmount(0);
   };
 
   const handleCashWithdrawal = (id, amount) => {
@@ -36,6 +37,7 @@ const AccountListItem = ({ account, setAccounts }) => {
           : account
       )
     );
+    setAmount(0);
   };
 
   return (
@@ -47,6 +49,7 @@ const AccountListItem = ({ account, setAccounts }) => {
         <input
           min={0}
           type="number"
+          value={amount}
           onChange={(e) => setAmount(+e.target.value)}
         />
         <Button

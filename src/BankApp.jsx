@@ -37,9 +37,11 @@ function Frame() {
       <div className="frame">
         <AddNewAccount setAccounts={setAccounts} />
         <table>
-          {accounts.map((account) => (
-            <AccountListItem account={account} setAccounts={setAccounts} />
-          ))}
+          <tbody>
+            {accounts.map((account) => (
+              <AccountListItem account={account} setAccounts={setAccounts} />
+            ))}
+          </tbody>
         </table>
       </div>
     </div>
