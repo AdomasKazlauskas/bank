@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./BankApp.scss";
-import AddToList from "./components/AddToList";
-import DeleteButton from "./components/DeleteButton";
+import AddNewAccount from "./components/AddNewAccount";
+import AccountListItem from "./components/AccountListItem";
 
 function Frame() {
   const list = [
@@ -24,31 +24,16 @@ function Frame() {
       cash: "1422",
     },
   ];
-  const [lists, setLists] = useState(list);
+  const [accounts, setAccounts] = useState(list);
+
   return (
     <div className="frame">
-      <div>
-        <AddToList setList={setLists} />
-        <form>
-          <table>
-            {lists.map((current) => (
-              <tr>
-                <td>{current.name}</td>
-                <td>{current.surname}</td>
-                <td>{current.cash}</td>
-                <td>
-                  <input type="number" />
-                  <button>pridėti lėšų</button>
-                  <button>nuskaičiuoti lėšas</button>
-                </td>
-                <td>
-                  <button>Ištrinti</button>
-                </td>
-              </tr>
-            ))}
-          </table>
-        </form>
-      </div>
+      <AddNewAccount setAccounts={setAccounts} />
+      <table>
+        {accounts.map((account) => (
+          <AccountListItem account={account} setAccounts={setAccounts} />
+        ))}
+      </table>
     </div>
   );
 }
