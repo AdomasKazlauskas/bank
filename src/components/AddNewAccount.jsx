@@ -38,6 +38,7 @@ const AddNewAccount = ({ setAccounts }) => {
       <Button
         disabled={!name || !surname}
         label="Add"
+        type="submit"
         //onClick={handleAddAccount}
       />
     </form>

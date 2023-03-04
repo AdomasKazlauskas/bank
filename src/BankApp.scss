@@ -14,48 +14,12 @@ td {
   color: #011627;
 }
 
-table td button {
-  padding: 5px 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  background-color: #7ebdc2;
-}
-
-table td button.tableDataEdit {
-  border: 1px solid green;
-  background-color: rgb(30, 176, 30);
-  color: white;
-}
-
-table td button.tableDataEdit:hover {
-  filter: brightness(85%);
-}
-
-table td button.tableDataDelete {
-  border: 1px solid red;
-  background-color: rgb(198, 54, 54);
-  color: white;
-}
-
-table td button.tableDataDelete:hover {
-  filter: brightness(85%);
-}
-
 .addToList {
   margin-bottom: 30px;
   & input {
     width: 230px;
     height: 30px;
   }
-  button {
-    width: 140px;
-    color: white;
-    background-color: green;
-  }
-}
-
-.addToList button:hover {
-  background-color: rgb(30, 176, 30);
 }
 
 .some-button {
@@ -65,19 +29,23 @@ table td button.tableDataDelete:hover {
   padding: 5px 10px;
   border-radius: 10px;
   cursor: pointer;
-  &:hover {
+  &:hover:enabled {
     filter: brightness(85%);
+  }
+  &:disabled {
+    background-color: lightgray;
+    opacity: 0.7;
+    cursor: default;
   }
 }
 
-.some-button {
-  background-color: rgb(30, 176, 30);
-  border: 1px solid red;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  &:hover {
-    filter: brightness(85%);
-  }
+.header-container {
+  background-color: antiquewhite;
+  color: #011627;
+  border-bottom: solid 4px #011627;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
 }
