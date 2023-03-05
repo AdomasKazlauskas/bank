@@ -34,9 +34,7 @@ function Frame() {
 
   return (
     <div>
-      {showPopUp && false && (
-        <PopUp setShowPopUp={setShowPopUp} type={popUpType} />
-      )}
+      {showPopUp && <PopUp setShowPopUp={setShowPopUp} type={popUpType} />}
       <Header
         totalAccounts={accounts.length}
         totalAmount={getTotalCash(accounts)}
@@ -55,6 +53,7 @@ function Frame() {
           <tbody>
             {displayedAccounts.map((account) => (
               <AccountListItem
+                key={account.id}
                 accounts={accounts}
                 account={account}
                 setAccounts={setAccounts}

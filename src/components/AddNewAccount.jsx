@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { writeToLocalStorage } from "../functions/localStorage";
 import Button from "./Button";
+import { v4 as uuidv4 } from "uuid";
 
 const AddNewAccount = ({ accounts, setAccounts, handlePopUp }) => {
   const [name, setName] = useState("");
@@ -9,7 +10,7 @@ const AddNewAccount = ({ accounts, setAccounts, handlePopUp }) => {
   const handleAddAccount = (event) => {
     event.preventDefault();
     const newAccount = {
-      id: Math.random(), //uuid
+      id: uuidv4(),
       cash: 0,
       name,
       surname,
