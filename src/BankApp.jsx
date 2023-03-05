@@ -7,18 +7,25 @@ import getTotalCash from "./functions/getTotalCash";
 import sortClients from "./functions/sortClients";
 import PopUp from "./components/PopUp";
 import { readFromLocalStorage } from "./functions/localStorage";
+import Filter from "./components/Filter";
 
 function Frame() {
   const [accounts, setAccounts] = useState([]);
   const [showPopUp, setShowPopUp] = useState(false);
   const [popUpType, setPopUpType] = useState();
+  const [displayedAccounts, setDisplayedAccounts] = useState([]);
 
   useEffect(() => {
     const accountFromStorage = readFromLocalStorage("accounts");
+    const sortedAccounts = sortClients(accountFromStorage);
     setAccounts(accountFromStorage);
+    setDisplayedAccounts(sortedAccounts);
   }, []);
 
-  const sortedAccounts = sortClients(accounts);
+  useEffect(() => {
+    const sortedAccounts = sortClients(accounts);
+    setDisplayedAccounts(sortedAccounts);
+  }, [accounts]);
 
   const handlePopUp = (isOpen, type) => {
     setShowPopUp(isOpen);
@@ -40,9 +47,13 @@ function Frame() {
           accounts={accounts}
           handlePopUp={handlePopUp}
         />
+        <Filter
+          setDisplayedAccounts={setDisplayedAccounts}
+          accounts={accounts}
+        />
         <table>
           <tbody>
-            {sortedAccounts.map((account) => (
+            {displayedAccounts.map((account) => (
               <AccountListItem
                 accounts={accounts}
                 account={account}
