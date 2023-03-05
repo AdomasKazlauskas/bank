@@ -1,13 +1,14 @@
 import { useState } from "react";
+import { writeToLocalStorage } from "../functions/localStorage";
 import Button from "./Button";
 
-const AccountListItem = ({ account, setAccounts, handlePopUp }) => {
+const AccountListItem = ({ account, accounts, setAccounts, handlePopUp }) => {
   const [amount, setAmount] = useState(0);
 
   const handleAccountDelete = (id) => {
-    setAccounts((prevState) =>
-      prevState.filter((account) => account.id !== id)
-    );
+    const updatedAccounts = accounts.filter((account) => account.id !== id);
+    setAccounts(updatedAccounts);
+    writeToLocalStorage("accounts", updatedAccounts);
     handlePopUp(true, "delete");
   };
 
@@ -16,13 +17,11 @@ const AccountListItem = ({ account, setAccounts, handlePopUp }) => {
       alert("neleisiu");
       return;
     }
-    setAccounts((prevState) =>
-      prevState.map((account) =>
-        account.id === id
-          ? { ...account, cash: account.cash + amount }
-          : account
-      )
+    const updatedAccounts = accounts.map((account) =>
+      account.id === id ? { ...account, cash: account.cash + amount } : account
     );
+    setAccounts(updatedAccounts);
+    writeToLocalStorage("accounts", updatedAccounts);
     setAmount(0);
   };
 
@@ -31,13 +30,11 @@ const AccountListItem = ({ account, setAccounts, handlePopUp }) => {
       alert("neleisiu");
       return;
     }
-    setAccounts((prevState) =>
-      prevState.map((account) =>
-        account.id === id
-          ? { ...account, cash: account.cash - amount }
-          : account
-      )
+    const updatedAccounts = accounts.map((account) =>
+      account.id === id ? { ...account, cash: account.cash - amount } : account
     );
+    setAccounts(updatedAccounts);
+    writeToLocalStorage("accounts", updatedAccounts);
     setAmount(0);
   };
 

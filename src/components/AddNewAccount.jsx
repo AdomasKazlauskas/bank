@@ -1,19 +1,24 @@
 import { useState } from "react";
+import { writeToLocalStorage } from "../functions/localStorage";
 import Button from "./Button";
 
-const AddNewAccount = ({ setAccounts, handlePopUp }) => {
+const AddNewAccount = ({ accounts, setAccounts, handlePopUp }) => {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
 
   const handleAddAccount = (event) => {
     event.preventDefault();
     const newAccount = {
-      id: 4, //uuid
+      id: Math.random(), //uuid
       cash: 0,
       name,
       surname,
     };
-    setAccounts((prevState) => [...prevState, newAccount]);
+    const updatedAccounts = [...accounts, newAccount];
+
+    setAccounts(updatedAccounts);
+    writeToLocalStorage("accounts", updatedAccounts);
+
     setName("");
     setSurname("");
     handlePopUp(true, "create");
