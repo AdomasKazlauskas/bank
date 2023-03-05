@@ -4,6 +4,8 @@ import AddNewAccount from "./components/AddNewAccount";
 import AccountListItem from "./components/AccountListItem";
 import Header from "./components/Header";
 import getTotalCash from "./functions/getTotalCash";
+import sortClients from "./functions/sortClients";
+import PopUp from "./components/PopUp";
 
 function Frame() {
   const list = [
@@ -11,7 +13,7 @@ function Frame() {
       id: 1,
       name: "Bob",
       surname: "Goodman",
-      cash: 2450,
+      cash: 0,
     },
     {
       id: 2,
@@ -27,19 +29,33 @@ function Frame() {
     },
   ];
   const [accounts, setAccounts] = useState(list);
+  const [showPopUp, setShowPopUp] = useState(false);
+  const [popUpType, setPopUpType] = useState();
+
+  const sortedAccounts = sortClients(accounts);
+
+  const handlePopUp = (isOpen, type) => {
+    setShowPopUp(isOpen);
+    setPopUpType(type);
+  };
 
   return (
     <div>
+      {showPopUp && <PopUp setShowPopUp={setShowPopUp} type={popUpType} />}
       <Header
         totalAccounts={accounts.length}
         totalAmount={getTotalCash(accounts)}
       />
       <div className="frame">
-        <AddNewAccount setAccounts={setAccounts} />
+        <AddNewAccount setAccounts={setAccounts} handlePopUp={handlePopUp} />
         <table>
           <tbody>
-            {accounts.map((account) => (
-              <AccountListItem account={account} setAccounts={setAccounts} />
+            {sortedAccounts.map((account) => (
+              <AccountListItem
+                account={account}
+                setAccounts={setAccounts}
+                handlePopUp={handlePopUp}
+              />
             ))}
           </tbody>
         </table>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Button from "./Button";
 
-const AddNewAccount = ({ setAccounts }) => {
+const AddNewAccount = ({ setAccounts, handlePopUp }) => {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
 
@@ -16,6 +16,7 @@ const AddNewAccount = ({ setAccounts }) => {
     setAccounts((prevState) => [...prevState, newAccount]);
     setName("");
     setSurname("");
+    handlePopUp(true, "create");
   };
 
   return (
@@ -35,12 +36,7 @@ const AddNewAccount = ({ setAccounts }) => {
         onChange={(e) => setSurname(e.target.value)}
       />
 
-      <Button
-        disabled={!name || !surname}
-        label="Add"
-        type="submit"
-        //onClick={handleAddAccount}
-      />
+      <Button disabled={!name || !surname} label="Add" type="submit" />
     </form>
   );
 };

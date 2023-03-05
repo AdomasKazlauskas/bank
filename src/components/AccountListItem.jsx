@@ -1,13 +1,14 @@
 import { useState } from "react";
 import Button from "./Button";
 
-const AccountListItem = ({ account, setAccounts }) => {
+const AccountListItem = ({ account, setAccounts, handlePopUp }) => {
   const [amount, setAmount] = useState(0);
 
   const handleAccountDelete = (id) => {
     setAccounts((prevState) =>
       prevState.filter((account) => account.id !== id)
     );
+    handlePopUp(true, "delete");
   };
 
   const handleCashDeposit = (id, amount) => {
