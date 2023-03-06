@@ -17,8 +17,20 @@ td {
   text-align: center;
 }
 
+.itemButtonGap {
+  display: flex;
+  gap: 10px;
+  padding-left: 13px;
+  margin-bottom: 3px;
+}
+
 .cashInput {
-  margin-bottom: 5px;
+  margin-bottom: 3px;
+}
+
+.cashAlign {
+  text-align: right;
+  padding-right: 20px;
 }
 
 .tableTop {
@@ -36,10 +48,13 @@ td {
     width: 230px;
     height: 30px;
   }
+  & button {
+    margin-left: 20px;
+  }
 }
 
 .some-button {
-  background-color: #7ebdc2;
+  background-color: #366a6e;
   border: 1px solid #1c3041;
   color: white;
   padding: 5px 10px;
@@ -47,7 +62,7 @@ td {
   cursor: pointer;
   &:hover:enabled {
     filter: brightness(120%);
-    color: #1c3041;
+    color: white;
     border: 1px solid white;
     box-shadow: 2px 2px 2px #1c3041;
   }
@@ -121,4 +136,6 @@ header img {
 
 .filter-Options {
   padding-bottom: 20px;
+  display: flex;
+  gap: 10px;
 }

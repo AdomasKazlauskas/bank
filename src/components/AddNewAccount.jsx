@@ -30,19 +30,19 @@ const AddNewAccount = ({ accounts, setAccounts, handlePopUp }) => {
       <input
         type="text"
         name="name"
-        placeholder="Enter Name"
+        placeholder="Vardas"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
       <input
         type="text"
         name="surname"
-        placeholder="Enter Surname"
+        placeholder="Pavardė"
         value={surname}
         onChange={(e) => setSurname(e.target.value)}
       />
 
-      <Button disabled={!name || !surname} label="Add" type="submit" />
+      <Button disabled={!name || !surname} label="Pridėti" type="submit" />
     </form>
   );
 };

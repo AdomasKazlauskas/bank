@@ -42,7 +42,9 @@ const AccountListItem = ({ account, accounts, setAccounts, handlePopUp }) => {
     <tr>
       <td>{account.name}</td>
       <td>{account.surname}</td>
-      <td>{account.cash} €</td>
+      <td>
+        <div className="cashAlign">{account.cash.toFixed(2)} € </div>
+      </td>
       <td>
         <input
           className="cashInput"
@@ -51,14 +53,16 @@ const AccountListItem = ({ account, accounts, setAccounts, handlePopUp }) => {
           value={amount}
           onChange={(e) => setAmount(+e.target.value)}
         />
-        <Button
-          onClick={() => handleCashDeposit(account.id, amount)}
-          label="pridėti lėšų"
-        />
-        <Button
-          onClick={() => handleCashWithdrawal(account.id, amount)}
-          label="nuskaičiuoti lėšas"
-        />
+        <div className="itemButtonGap">
+          <Button
+            onClick={() => handleCashDeposit(account.id, amount)}
+            label="pridėti lėšų"
+          />
+          <Button
+            onClick={() => handleCashWithdrawal(account.id, amount)}
+            label="nuskaičiuoti lėšas"
+          />
+        </div>
       </td>
       <td>
         <Button

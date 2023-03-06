@@ -9,7 +9,7 @@ const Header = ({ totalAccounts, totalAmount }) => {
       </div>
       <div className="header-info">
         <div>Aktyvių klientų skaičius: {totalAccounts}</div>
-        <div>Saugoma pinigų suma: {totalAmount} €</div>
+        <div>Saugoma pinigų suma: {totalAmount.toFixed(2)} €</div>
       </div>
     </header>
   );
