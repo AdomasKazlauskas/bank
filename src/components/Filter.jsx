@@ -18,10 +18,10 @@ const FilterButton = ({ accounts, setDisplayedAccounts }) => {
   };
 
   return (
-    <div>
-      <Button onClick={handleFilterWithCash} label="Pilnos" />
-      <Button onClick={handleFilterWithoutCash} label="Tuščios" />
-      <Button onClick={handleFilterClearing} label="Visos" />
+    <div className="filter-Options">
+      <Button onClick={handleFilterWithCash} label="Pilnos sąskaitos" />
+      <Button onClick={handleFilterWithoutCash} label="Tuščios sąskaitos" />
+      <Button onClick={handleFilterClearing} label="Visos sąskaitos" />
     </div>
   );
 };

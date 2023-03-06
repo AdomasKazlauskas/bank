@@ -1,7 +1,7 @@
 const PopUp = ({ setShowPopUp, type }) => {
   const messages = {
-    delete: "Trynimas!",
-    create: "Sukūrimas!",
+    delete: "Sąskaita ištrinta!",
+    create: "Sąskaita sukurta!",
   };
 
   // norint pakeist css pagal type

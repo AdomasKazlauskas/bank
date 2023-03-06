@@ -8,6 +8,7 @@ import sortClients from "./functions/sortClients";
 import PopUp from "./components/PopUp";
 import { readFromLocalStorage } from "./functions/localStorage";
 import Filter from "./components/Filter";
+import TableTop from "./components/TableTop";
 
 function Frame() {
   const [accounts, setAccounts] = useState([]);
@@ -50,6 +51,9 @@ function Frame() {
           accounts={accounts}
         />
         <table>
+          <thead>
+            <TableTop />
+          </thead>
           <tbody>
             {displayedAccounts.map((account) => (
               <AccountListItem

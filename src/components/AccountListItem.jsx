@@ -3,7 +3,7 @@ import { writeToLocalStorage } from "../functions/localStorage";
 import Button from "./Button";
 
 const AccountListItem = ({ account, accounts, setAccounts, handlePopUp }) => {
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState("");
 
   const handleAccountDelete = (id) => {
     const updatedAccounts = accounts.filter((account) => account.id !== id);
@@ -22,12 +22,12 @@ const AccountListItem = ({ account, accounts, setAccounts, handlePopUp }) => {
     );
     setAccounts(updatedAccounts);
     writeToLocalStorage("accounts", updatedAccounts);
-    setAmount(0);
+    setAmount("");
   };
 
   const handleCashWithdrawal = (id, amount) => {
     if (amount < 0 || amount > account.cash) {
-      alert("neleisiu");
+      alert("I'm sorry Dave, I'm afraid I can't do that");
       return;
     }
     const updatedAccounts = accounts.map((account) =>
@@ -35,16 +35,17 @@ const AccountListItem = ({ account, accounts, setAccounts, handlePopUp }) => {
     );
     setAccounts(updatedAccounts);
     writeToLocalStorage("accounts", updatedAccounts);
-    setAmount(0);
+    setAmount("");
   };
 
   return (
     <tr>
       <td>{account.name}</td>
       <td>{account.surname}</td>
-      <td>{account.cash}</td>
+      <td>{account.cash} €</td>
       <td>
         <input
+          className="cashInput"
           min={0}
           type="number"
           value={amount}
